@@ -1,7 +1,7 @@
 {
-  "name": "gulp-fecmd",
-  "version": "1.0.9",
-  "description": "FE CMD(Common Module Definition) for gulp",
+  "name": "fecmd",
+  "version": "1.0.0",
+  "description": "FE CMD(Common Module Definition)",
   "main": "index.js",
   "scripts": {
     "test": "gulp"
@@ -16,14 +16,15 @@
   ],
   "files": [
     "index.js",
-    "src"
+    "src",
+    "bin"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shalles/gulp-fecmd.git"
+    "url": "git+https://github.com/shalles/fecmd.git"
   },
   "bugs": {
-    "url": "https://github.com/shalles/gulp-fecmd/issues"
+    "url": "https://github.com/shalles/fecmd/issues"
   },
   "author": {
     "name": "shalles",
@@ -32,7 +33,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^5.8.23",
-    "gulp-util": "^3.0.6"
+    "babel-core": "^5.8.23"
   }
 }

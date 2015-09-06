@@ -1,65 +1,63 @@
 # fecmd
 
-### what's fecmd
-fecmd is a tool that will help FE coding js with CMD(Common Module Definition) free without quote any third-party library in your program;
-
 ### install
 
 ```
 sudo npm install fecmd -g
 
+fecmd source export
 // or 
 npm install fecmd --save
 ```
 
-**`version`** 1.0.6
-
-add support bower module, and more please look down "gulpfile.js" and "a.js"
-
-**`version`** 1.0.7
-
-support .json
-
-**`version`** 1.0.8
-
-support .es6 
+.es6 
 more infomation [ https://babeljs.io/docs/learn-es2015/ ](https://babeljs.io/docs/learn-es2015/)
 
 ### Documentation
 
-```js
-//gulpfile.js
+**config**
 
-var fecmd = require('fecmd');
+//fecmd.config
 
-gulp.task('scripts', function() {
-    var data =  gulp.src('js/a.js')
-                    .pipe(sourcemaps.init());
+modulePath: bower module path(node model)
 
+*`priority`*
 
+`0`. commond line
 
-    // you should use it before minify or uglify and ...
-    // support bower module like 
-    // fecmd({
-    //      modulePath: "bower directory"
-    // })
-    // if you don't give modulePath, default is the directory in ".bowerrc" file 
-    // or the folder bower_components in you build path but all the first is you 
-    // scripts folder then bower module
-    data = data.pipe(fecmd()); 
-    
+```
+//a) scan src/source folder, convert all js files and export export/js with same name
+fecmd src/source export/js
 
+//or b) convert app.js to export/
 
-    config.minify && (data = data.pipe(uglify()).pipe(sourcemaps.write()));
-    config.livereload && data.pipe(livereload());
-    config.version ?
-        data.pipe(rev())
-            .pipe(gulp.dest(config.scripts.exp))
-            .pipe(rev.manifest('js-map.json'))
-            .pipe(gulp.dest(config.tmp)) : 
-        data.pipe(gulp.dest(config.scripts.exp));
-});
+fecmd src/script/app.js export/
 
+//or c)
+//use base path and export with a flag 'out' such source app.js export app.out.js
+
+fecmd src/script/app.js
+
+//or d)
+//scan current folder, convert all js files, export like c) 
+fecmd
+```
+
+`1`. modulesPath  (must be exact path)
+`2`. .bowerrc directory (if exists)
+`3`. bower_components (if exists)
+`4`. modulesPath (!!modulesPath === false)
+
+```json
+{
+    "modulesPath":"",
+    "filesDir": [
+        {
+            "source": "src/scripts/",
+            "exports": "src/export/js/"
+        }
+    ]
+}
 ```
 
 **program file**
@@ -81,7 +79,7 @@ var es6 = require('lib/file.es6'); // return es5 code
 // require('c.js');
 // require('d');
 // 
-// if your version is 1.0.6 or newer you can quote module 
+// you can quote module 
 // from bower module lick this require('jquery'), without 
 // extname and without a filename jquery or jquery.js file
 // in the same dir with a.js
@@ -136,7 +134,6 @@ module.exports = Calc;
 // console.log(c.add(1, 2));
 ```
 
-
 **template**
 
 require support template (*.tpl) like this file "xx.tpl"
@@ -154,5 +151,5 @@ export
 "<div>\n    {{#list}}\n    <span>{{supportTemplate}}</span>\n    {{/list}}\n</div>"
 ```
 
-
+more -- Test Demo[ https://github.com/shalles/fecmd/tree/master/test ](https://github.com/shalles/fecmd/tree/master/test)
 
