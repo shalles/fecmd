@@ -1,13 +1,10 @@
 var fs = require('fs'),
     path = require('path'),
     utils = require('./src/utils'),
-    gutil = require('gulp-util'),
-    through = require('through2'),
     requireItor = require('./src/requireIterator'),
     plugin = require('./src/plugin');
 
 var PLUGIN_NAME = 'fecmd',
-    PluginError = gutil.PluginError,
     codeStart = fs.readFileSync(__dirname + '/src/tpl/start.tpl').toString(),
     codetpl = fs.readFileSync(__dirname + '/src/tpl/code.tpl').toString(),
     codeInit = fs.readFileSync(__dirname + '/src/tpl/init.tpl').toString(),

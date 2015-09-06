@@ -6,8 +6,6 @@ var fs = require('fs'),
  * callback(parmas)
  * args.cnt  当前处理文件的内容 string
  * args.fp   当前处理文件的绝对路径 string
- *
- * 
  */
 module.exports = function(cbBefore, cbAfter, buildPath){
     // 清空 clear callback

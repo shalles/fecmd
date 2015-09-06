@@ -14,17 +14,10 @@ console.log('configPath', configPath);
 console.log('configJson', utils.readjson(configPath));
 
 var source = fileDir[0], exp = fileDir[1];
-if(source && (source = path.resolve(cwd, fileDir[0])) && fs.existsSync(source)){
-    fecmd({
-        filesDir: {
-            source: source,
-            exports: exp || source
-        }
-    })
-}else if(fs.existsSync(configPath) && 
+
+if(source === '-e' && fs.existsSync(configPath) && 
         (configJson = utils.readjson(configPath)) && 
-                configJson['filesDir']){
-    
+                            configJson['filesDir']){
 
     var dirs = configJson['filesDir'] || [];
     console.log('configJson["filesDir"]', dirs);
@@ -34,7 +27,14 @@ if(source && (source = path.resolve(cwd, fileDir[0])) && fs.existsSync(source)){
             filesDir: dirs[i]
         });
     }
-}else{
+} else if(source && (source = path.resolve(cwd, fileDir[0])) && fs.existsSync(source)){
+    fecmd({
+        filesDir: {
+            source: source,
+            exports: exp || source
+        }
+    })
+} else {
     fecmd({
         filesDir: {
             source: cwd,
