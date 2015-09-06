@@ -3,7 +3,7 @@ var $ = require("jquery"),
     // or utils = require("lib/utils.js"),
     json = require("data/data.json"),
     tpl = require("tpl/html.tpl"),
-    Cacl = require("lib/file.es6");
+    Calc = require("lib/file.es6");
 
 
 console.log($);
@@ -12,4 +12,4 @@ console.log(utils.simpleTemplate(tpl, {
     title: "Fecmd Test Demo",
     content: "more infomation <a herf='https://github.com/shalles/fecmd'>https://github.com/shalles/fecmd</a>"
 }));
-console.log(new Cacl().add(1,2));
+console.log(new Calc.Calc().add(1,2));

@@ -1,4 +1,6 @@
-class Calc {
+import * as math from "../data/data.json";
+
+export class Calc {
     constructor() {
         console.log('Calc constructor');
     }
@@ -7,7 +9,7 @@ class Calc {
     }
 }
 
-module.exports = Calc;
+console.log(math)
 
 // usage
 // var c = new Calc();

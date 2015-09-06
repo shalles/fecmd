@@ -9310,11 +9310,21 @@
         path: "/src/scripts/lib/file.es6",
         fn: function(require, exports, module, window, undefined) {
             
-            'use strict';
+            "use strict";
 			
-			var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+			Object.defineProperty(exports, "__esModule", {
+			    value: true
+			});
 			
-			function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+			var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+			
+			function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+			
+			function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+			
+			var _dataDataJson = require("/src/scripts/data/data.json");
+			
+			var math = _interopRequireWildcard(_dataDataJson);
 			
 			var Calc = (function () {
 			    function Calc() {
@@ -9324,7 +9334,7 @@
 			    }
 			
 			    _createClass(Calc, [{
-			        key: 'add',
+			        key: "add",
 			        value: function add(a, b) {
 			            return a + b;
 			        }
@@ -9333,7 +9343,9 @@
 			    return Calc;
 			})();
 			
-			module.exports = Calc;
+			exports.Calc = Calc;
+			
+			console.log(math);
 			
 			// usage
 			// var c = new Calc();
@@ -9353,7 +9365,7 @@
 			    // or utils = require("/src/scripts/lib/utils.js"),
 			    json = require("/src/scripts/data/data.json"),
 			    tpl = require("/src/scripts/tpl/html.tpl"),
-			    Cacl = require("/src/scripts/lib/file.es6");
+			    Calc = require("/src/scripts/lib/file.es6");
 			
 			
 			console.log($);
@@ -9362,7 +9374,7 @@
 			    title: "Fecmd Test Demo",
 			    content: "more infomation <a herf='https://github.com/shalles/fecmd'>https://github.com/shalles/fecmd</a>"
 			}));
-			console.log(new Cacl().add(1,2));
+			console.log(new Calc.Calc().add(1,2));
             
         }
     };
