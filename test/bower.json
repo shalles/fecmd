@@ -1,0 +1,23 @@
+{
+  "name": "fecmd-test",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/shalles/fecmd",
+  "authors": [
+    "shalles <shalles@163.com>"
+  ],
+  "description": "fecmd test demo",
+  "keywords": [
+    "fecmd",
+    "fe",
+    "CMD"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
