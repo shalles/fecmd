@@ -1,6 +1,6 @@
 {
   "name": "fecmd",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "FE CMD(Common Module Definition)",
   "main": "index.js",
   "bin": "bin/cmd.js",

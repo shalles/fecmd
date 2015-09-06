@@ -17,7 +17,17 @@ module.exports = function(cbBefore, cbAfter, buildPath){
     //格式缩进 format require code tab
     cbAfter.add(function(args){
         args.cnt = args.cnt.replace(/\n/g, '\n\t\t\t');
+        return;
+    });
+    // 处理不同ext文件 template require like require('htmlcode.tpl') export a safe string;
+    cbBefore.add(function(args){
         switch(path.extname(args.fp)){
+            case '.tpl': 
+                args.cnt = "module.exports=" + JSON.stringify(args.cnt);
+                break;
+            case '.json':
+                args.cnt = "module.exports=" + args.cnt; //解析出错直接暴露
+                break;
             case '.es6':
                 // var result = traceur.compile(args.cnt, {
                 //     sourceMap: false,
@@ -31,20 +41,6 @@ module.exports = function(cbBefore, cbAfter, buildPath){
                 args.cnt = babel.transform(args.cnt, {
                     modules: "common" 
                 }).code;
-                break;
-            default:
-                break;
-        }
-        return;
-    });
-    // 处理不同ext文件 template require like require('htmlcode.tpl') export a safe string;
-    cbBefore.add(function(args){
-        switch(path.extname(args.fp)){
-            case '.tpl': 
-                args.cnt = "module.exports=" + JSON.stringify(args.cnt);
-                break;
-            case '.json':
-                args.cnt = "module.exports=" + args.cnt; //解析出错直接暴露
                 break;
             default:
                 break;
