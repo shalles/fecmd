@@ -4,7 +4,7 @@
   "description": "FE CMD(Common Module Definition)",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "fecmd -e"
   },
   "keywords": [
     "fe",

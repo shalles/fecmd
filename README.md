@@ -41,6 +41,10 @@ fecmd src/script/app.js
 //or d)
 //scan current folder, convert all js files, export like c) 
 fecmd
+
+//or e)
+//use fecmd.config
+fecmd -e
 ```
 
 `1`. modulesPath  (must be exact path)
