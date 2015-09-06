@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "FE CMD(Common Module Definition)",
   "main": "index.js",
+  "bin": "bin/cmd.js",
   "scripts": {
     "test": "fecmd -e"
   },
