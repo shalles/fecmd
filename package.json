@@ -7,6 +7,9 @@
   "scripts": {
     "test": "fecmd -e"
   },
+  "servermock": {
+    "type": "content"
+  },
   "keywords": [
     "fe",
     "js",
