@@ -77,7 +77,7 @@ function exportReqI(config) {
         }).cnt;
 
         // 当前文件中是否有require项 这里只是简单的regex match 之后需优化排除注释里的require
-        match = content.match(regx);
+        match = utils.clearJs(content).match(regx);
 
         // 没有require不需要迭代
         if (match) {
@@ -95,6 +95,7 @@ function exportReqI(config) {
             }
 
             content = content.replace(regx, function($0, $1) {
+                if(match.indexOf($0) === -1) return $0;
                 var p = path.isAbsolute($1) ? $1 : path.join(filebase, $1),
                     id = utils.convertID(p);
 
