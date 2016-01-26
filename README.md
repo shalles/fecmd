@@ -23,7 +23,7 @@ modulePath: bower module path(node model)
 
 *`priority`*
 
-`0`. commond line
+`0`. command line
 
 ```
 //a) scan src/source folder, convert all js files and export export/js with same name
